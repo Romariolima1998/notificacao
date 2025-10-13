@@ -44,7 +44,7 @@ public class EmailService {
             context.setVariable("dataEvento", dto.getDataEvento());
             context.setVariable("descricao", dto.getDescricao());
             String content = templateEngine.process("notificacao", context);
-            mimeMessageHelper.setText(content);
+            mimeMessageHelper.setText(content,true);
             javaMailSender.send(mensagem);
 
         } catch (MessagingException | UnsupportedEncodingException e) {
